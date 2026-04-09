@@ -1,0 +1,41 @@
+根目录：
+cd ~/Desktop/code/medical-his-system
+
+# 进入后端工程目录
+cd backend
+
+# 让 Maven 重新编译并跳过测试
+mvn clean compile
+
+# 尝试启动后端服务
+mvn spring-boot:run
+
+# 进入前端工作目录
+cd ~/Desktop/code/medical-his-system/frontend
+
+# 启动前端：
+npm run dev
+
+# 修改完后一定记得拉去到本地更新
+git pull origin main
+
+
+# 本地修改后提交到github上
+先回到主目录：
+cd ~/Desktop/code/medical-his-system
+
+# 在提交之前，先看看自己到底改了哪些文件：
+git status
+
+# “提交三连”同步到 GitHub
+# 1. 把所有修改过的文件添加到暂存区（注意那个英文句号代表“所有文件”）
+git add .
+
+# 2. 提交这些更改，并写一段简短的备注（告诉你未来的自己和组员这次改了啥）
+git commit -m "feat: 修改readme"
+
+# 3. 将本地的提交推送到 GitHub 的 main 分支上
+git push origin main
+
+
+
