@@ -39,6 +39,12 @@ const routes = [
         name: 'Consultation',
         component: () => import('../views/Consultation.vue'),
         meta: { title: '就诊记录', icon: 'Document' }
+      },
+      {
+        path: 'profile',
+        name: 'Profile',
+        component: () => import('../views/Profile.vue'),
+        meta: { title: '个人中心', icon: 'UserFilled' }
       }
     ]
   }
