@@ -7,6 +7,12 @@ const routes = [
     redirect: '/dashboard'
   },
   {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue'),
+    meta: { title: '登录' }
+  },
+  {
     path: '/',
     component: Layout,
     children: [
@@ -41,6 +47,28 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+// 全局前置守卫
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem('token')
+
+  if (to.path === '/login') {
+    if (token) {
+      // 如果已经登录，直接跳转到首页
+      next('/')
+    } else {
+      next()
+    }
+  } else {
+    // 访问非登录页面，校验 token
+    if (token) {
+      next()
+    } else {
+      // 没登录，拦截跳转到登录页
+      next('/login')
+    }
+  }
 })
 
 export default router
